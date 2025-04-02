@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DIN+Condensed:wght@400;700&display=swap');
+
+body { 
+  margin: 0; 
+  padding: 0; 
+}
+
+#map { 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  width: 100%; 
+}
+
+#app-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 38px;
+  color: white;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#app-subtitle {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 14px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  margin-top: -8px;
+}
+
+#controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  z-index: 1;
+  color: white;
+  width: 200px; /* Fixed width for the control panel */
+  box-sizing: border-box; /* Include padding in width calculation */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#info {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  z-index: 1;
+  font-family: 'DIN Condensed', sans-serif;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 300px;
+  text-align: center;
+}
+
+#currentFlight {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+#music-player {
+  position: absolute;
+  bottom: 10vh;
+  left: 10px;
+  width: 400px;
+  height: 80px;
+  background: transparent;
+  border-radius: 4px;
+  z-index: 1;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  width: 160px; /* Fixed width for all buttons */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.start-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.stop-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+#controls label {
+  color: white;
+  font-family: sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  position: relative; /* Allow for absolute positioning of children */
+  height: 24px; /* Fixed height for all control rows */
+}
+
+#mapStyle {
+  padding: 4px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  font-family: sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100px;
+}
+
+
+.button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Destination popup styling */
+.destination-popup {
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.destination-popup img {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  opacity: 1;
+  transition: opacity 1.5s ease-out;
+}
+
+.fade-out img {
+  opacity: 0;
+}
+
+/* Make sure the transition works in Mapbox popup */
+.mapboxgl-popup {
+  will-change: opacity;
+  transition: opacity 1.5s ease-out;
+}
+
+.mapboxgl-popup.fade-out {
+  opacity: 0;
+}
+
+/* Style for mapbox popup */
+.mapboxgl-popup-content {
+  background-color: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+
+.mapboxgl-popup-tip {
+  display: none !important;
+}
+
+/* Prevent flash of popups at [0,0] when they're first created */
+.mapboxgl-popup {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.mapboxgl-popup.mapboxgl-popup-anchor-top,
+.mapboxgl-popup.mapboxgl-popup-anchor-bottom,
+.mapboxgl-popup.mapboxgl-popup-anchor-left,
+.mapboxgl-popup.mapboxgl-popup-anchor-right,
+.mapboxgl-popup.mapboxgl-popup-anchor-top-left,
+.mapboxgl-popup.mapboxgl-popup-anchor-top-right,
+.mapboxgl-popup.mapboxgl-popup-anchor-bottom-left,
+.mapboxgl-popup.mapboxgl-popup-anchor-bottom-right {
+  opacity: 1;
+}

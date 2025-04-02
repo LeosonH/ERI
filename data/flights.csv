@@ -1,0 +1,11 @@
+id,name,origin_name,origin_lon,origin_lat,destination_name,destination_lon,destination_lat,color
+0,Singapore to Chicago,Singapore,103.8198,1.3521,Chicago,-87.6298,41.8781,#FF5733
+1,Chicago to Tokyo,Chicago,-87.6298,41.8781,Tokyo,139.6917,35.6895,#33FF57
+2,Tokyo to Sydney,Tokyo,139.6917,35.6895,Sydney,151.2093,-33.8688,#3357FF
+3,Sydney to Auckland,Sydney,151.2093,-33.8688,Auckland,174.763336,-36.848461,#FF5733
+4,Auckland to Melbourne,Auckland,174.763336,-36.848461,Melbourne,144.9631,-37.8136,#33FF57
+5,Melbourne to Singapore,Melbourne,144.9631,-37.8136,Singapore,103.8198,1.3521,#3357FF
+6,Singapore to Bali,Singapore,103.8198,1.3521,Bali,115.1889,-8.4095,#FF5733
+7,Bali to Singapore,Bali,115.1889,-8.4095,Singapore,103.8198,1.3521,#33FF57
+8,Singapore to San Francisco,Singapore,103.8198,1.3521,San Francisco,-122.4194,37.7749,#3357FF
+9,San Francisco to Chicago,San Francisco,-122.4194,37.7749,Chicago,-87.6298,41.8781,#FF5733
