@@ -53,6 +53,7 @@ The application displays images at destination points when flights arrive. Image
 
 1. Get a free Mapbox access token at https://account.mapbox.com/
 2. Copy `.env.example` to `.env` and add your Mapbox access token:
+
    ```
    MAPBOX_ACCESS_TOKEN=your_mapbox_access_token_here
    ```
@@ -61,6 +62,7 @@ The application displays images at destination points when flights arrive. Image
    - Or create your own PNG image (recommended size: 32x32 pixels)
    - Save it as 'plane-icon.png' in the same directory as index.html
 4. Add destination images to the `/img/` directory (named `0.png`, `1.png`, etc.)
+
 5. For local development, use the included Python server:
    ```
    # Run the server (no dependencies required)
@@ -81,4 +83,6 @@ The application displays images at destination points when flights arrive. Image
 ## Contributor(s)
 [Leoson Hoay](https://www.linkedin.com/in/leoson-hoay/)
 
-This was originally a passion project that was intended as a dedication to the author's ex-partner as a segment in their potential wedding (it did not happen, of course). After refining it for use at a friend's wedding, he decided to release an open-source version for folks to enjoy. Continued development is expected! 
+Originally a passion project that was intended as a dedication to the author's ex-partner as a segment in their potential wedding (it did not happen, of course). After refining it for use at a friend's wedding, he decided to release an open-source version for folks to enjoy. 
+
+Continued development is expected!
