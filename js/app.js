@@ -26,7 +26,7 @@ async function loadFlightData() {
       // Convert to the structure our app expects
       return {
         id: parseInt(record.id),
-        name: record.name,
+        name: record.text, // Updated from name to text
         origin_name: record.origin_name,
         origin: { 
           lon: parseFloat(record.origin_lon), 
@@ -91,7 +91,8 @@ let currentMapStyle = 'dark';
 // Control elements
 const animationToggleBtn = document.getElementById('animationToggle');
 const resetBtn = document.getElementById('resetAnimation');
-const mapStyleSelect = document.getElementById('mapStyle');
+const darkStyleBtn = document.getElementById('darkStyle');
+const streetsStyleBtn = document.getElementById('streetsStyle');
 const followPlaneCheckbox = document.getElementById('followPlane');
 const cameraSmoothingCheckbox = document.getElementById('cameraSmoothing');
 const currentFlightElement = document.getElementById('currentFlight');
@@ -275,6 +276,17 @@ function setupFlightPaths() {
   });
 }
 
+// Function to update active style button
+function setActiveStyleButton(style) {
+  if (style === 'dark') {
+    darkStyleBtn.classList.add('style-btn-active');
+    streetsStyleBtn.classList.remove('style-btn-active');
+  } else {
+    darkStyleBtn.classList.remove('style-btn-active');
+    streetsStyleBtn.classList.add('style-btn-active');
+  }
+}
+
 function setupEventListeners() {
   // Animation toggle button
   animationToggleBtn.addEventListener('click', function() {
@@ -293,9 +305,13 @@ function setupEventListeners() {
     }
   });
   
-  // Map style selector
-  mapStyleSelect.addEventListener('change', function() {
-    changeMapStyle(this.value);
+  // Map style buttons
+  darkStyleBtn.addEventListener('click', function() {
+    changeMapStyle('dark');
+  });
+  
+  streetsStyleBtn.addEventListener('click', function() {
+    changeMapStyle('streets');
   });
   
   // Camera smoothing toggle
@@ -340,6 +356,9 @@ function toggleMusic(show) {
 function changeMapStyle(style) {
   if (mapStyles[style] && style !== currentMapStyle) {
     currentMapStyle = style;
+    
+    // Update active button state
+    setActiveStyleButton(style);
     
     // Reset animation when style changes
     resetAnimation();
@@ -506,8 +525,8 @@ function animatePath(pathIndex, initialProgress = 0) {
   const bearing = getBearing(path.origin, path.destination);
   const duration = 8000; // Animation duration in ms
 
-  // Update current flight info with origin and destination names
-  currentFlightElement.textContent = `${path.origin_name} to ${path.destination_name} (${path.name})`;
+  // Update current flight info with origin and destination names only
+  currentFlightElement.textContent = `${path.origin_name} to ${path.destination_name}`;
   
   // Make sure the featured track is loaded if music is enabled
   if (musicToggle.checked && spotifyEmbed.src !== featuredTrack) {
@@ -806,14 +825,17 @@ function animatePath(pathIndex, initialProgress = 0) {
         // Check if the image exists before creating a popup
         const img = new Image();
         img.onload = function() {
-          // Image exists, create and show popup
+          // Image exists, create and show popup with white background
           const popup = new mapboxgl.Popup({ 
             closeButton: false, 
             closeOnClick: false,
-            offset: 0
+            className: 'custom-popup' // Add a custom class
           })
           .setLngLat([destination.lon, destination.lat])
-          .setHTML(`<div class="destination-popup"><img src="${imageUrl}" alt="Destination" width="150"></div>`);
+          .setHTML(`<div class="destination-popup">
+            <img src="${imageUrl}" alt="Destination" width="160">
+            <div class="popup-text">${path.name}</div>
+          </div>`);
           
           // Add popup to marker
           marker.setPopup(popup);

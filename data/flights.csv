@@ -1,4 +1,4 @@
-id,name,origin_name,origin_lon,origin_lat,destination_name,destination_lon,destination_lat,color
+id,text,origin_name,origin_lon,origin_lat,destination_name,destination_lon,destination_lat,color
 0,Singapore to Chicago,Singapore,103.8198,1.3521,Chicago,-87.6298,41.8781,#FF5733
 1,Chicago to Tokyo,Chicago,-87.6298,41.8781,Tokyo,139.6917,35.6895,#33FF57
 2,Tokyo to Sydney,Tokyo,139.6917,35.6895,Sydney,151.2093,-33.8688,#3357FF

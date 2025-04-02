@@ -64,10 +64,12 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   min-width: 300px;
   text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  font-size: 16px;
 }
 
 #currentFlight {
-  font-weight: bold;
+  font-weight: normal;
   color: #4CAF50;
 }
 
@@ -122,15 +124,59 @@ button {
   height: 24px; /* Fixed height for all control rows */
 }
 
-#mapStyle {
-  padding: 4px;
+
+.style-section {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.style-label {
+  color: white;
+  font-family: sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: inherit;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+}
+
+.style-button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.style-btn {
+  padding: 4px 8px;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
   font-family: sans-serif;
   font-size: 14px;
   cursor: pointer;
-  width: 100px;
+  width: 48%;
+  transition: all 0.2s ease;
+}
+
+.style-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.style-btn-active {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  font-weight: bold;
+  border: 1px solid #4CAF50;
+  box-shadow: 0 0 8px #4CAF50;
+  position: relative;
+  z-index: 2;
 }
 
 
@@ -140,6 +186,19 @@ button {
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.options-header {
+  color: white;
+  font-family: sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  margin: 5px auto 10px auto;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+  width: 100%;
+  display: block;
 }
 
 /* Destination popup styling */
@@ -152,10 +211,27 @@ button {
 .destination-popup img {
   display: block;
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   opacity: 1;
   transition: opacity 1.5s ease-out;
+}
+
+.popup-text {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px;
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 16px;
+  border-radius: 0 0 8px 8px;
+  margin-top: -4px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  width: 160px; /* Match image width */
+  box-sizing: border-box;
+  word-wrap: break-word; /* Allow text to wrap */
+  overflow-wrap: break-word;
+  line-height: 1.2;
 }
 
 .fade-out img {
@@ -173,15 +249,16 @@ button {
 }
 
 /* Style for mapbox popup */
-.mapboxgl-popup-content {
-  background-color: transparent !important;
-  padding: 0 !important;
-  box-shadow: none !important;
+.custom-popup .mapboxgl-popup-content {
+  background-color: white !important;
+  padding: 10px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
   border-radius: 8px !important;
 }
 
-.mapboxgl-popup-tip {
-  display: none !important;
+.custom-popup .mapboxgl-popup-tip {
+  border-top-color: white !important;
+  border-bottom-color: white !important;
 }
 
 /* Prevent flash of popups at [0,0] when they're first created */
