@@ -30,6 +30,8 @@ Each record represents a flight path with:
 
 You can modify the `data/flights.csv` file to create your own flight paths.
 
+**Note, since the path color feature is still in development, you can include any placeholder color hex value in the 'color' field.**
+
 ## Destination Images
 
 The application displays images at destination points when flights arrive. Images are shown in popups and are determined by the flight's ID:
