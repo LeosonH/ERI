@@ -39,7 +39,8 @@ The application displays images at destination points when flights arrive. Image
 - Images must be placed in the `/img/` directory
 - Name format: `{id}.png` (e.g., `0.png`, `1.png`, etc.)
 - If an image with the matching ID doesn't exist, no popup will be shown at that destination
-- Recommended image size: 150px width for optimal display
+- Recommended image size: 160px width for optimal display
+- The 'text' field will also display as a caption under the image.
 
 ## Features
 
@@ -92,6 +93,6 @@ The application displays images at destination points when flights arrive. Image
 ## Contributor(s)
 [Leoson Hoay](https://www.linkedin.com/in/leoson-hoay/)
 
-Originally a passion project for the author's ex-partner as a segment in their potential wedding (it did not happen, of course). After refining it for use at a friend's wedding, he decided to release an open-source version for folks to enjoy. 
+Originally a passion project for the author's ex-partner as a segment in their future wedding (it did not happen, of course). After refining it for use at a friend's wedding, he decided to release an open-source version for folks to enjoy. 
 
 Continued development is expected!
