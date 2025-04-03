@@ -11,7 +11,7 @@ The visualization loads flight paths from a CSV file located at `data/flights.cs
 
 The travel and flight dataset follows this format:
 ```
-id,name,origin_name,origin_lon,origin_lat,destination_name,destination_lon,destination_lat,color
+id,text,origin_name,origin_lon,origin_lat,destination_name,destination_lon,destination_lat,color
 ```
 
 For example:
@@ -21,7 +21,7 @@ For example:
 
 Each record represents a flight path with:
 - `id`: Unique identifier for the flight (used to match with destination images)
-- `name`: Display name for the flight
+- `text`: Description text that you can add to your destination images
 - `origin_name`: Name of the origin city
 - `origin_lon`, `origin_lat`: Coordinates of the origin
 - `destination_name`: Name of the destination city
@@ -68,6 +68,13 @@ The application displays images at destination points when flights arrive. Image
    # Run the server (no dependencies required)
    python3 server.py
    ```
+   
+   **Note**: There is also a no-cache option.
+   ```
+   # Run the no-cache server script
+   python3 server_no_cache.py
+   ```
+   
 6. Open your browser and navigate to http://localhost:8000
 
 ## Usage
@@ -83,6 +90,6 @@ The application displays images at destination points when flights arrive. Image
 ## Contributor(s)
 [Leoson Hoay](https://www.linkedin.com/in/leoson-hoay/)
 
-Originally a passion project that was intended as a dedication to the author's ex-partner as a segment in their potential wedding (it did not happen, of course). After refining it for use at a friend's wedding, he decided to release an open-source version for folks to enjoy. 
+Originally a passion project for the author's ex-partner as a segment in their potential wedding (it did not happen, of course). After refining it for use at a friend's wedding, he decided to release an open-source version for folks to enjoy. 
 
 Continued development is expected!
